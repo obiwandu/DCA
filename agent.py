@@ -4,7 +4,7 @@ import eventlet
 from template import Template
 from eos.lib.http import HTTP
 from telnetlib import Telnet
-test
+
 class Agent:
     def __init__(self):
         return
