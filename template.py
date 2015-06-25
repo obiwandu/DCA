@@ -17,8 +17,7 @@ class Template:
                 template['%s' % element.tag] = element.text
             else:
                 for subElement in element:
-                    expect_result.append(subElement.tag, subElement.text)
-
+                    expect_result.append((subElement.tag, subElement.text))
         return template, expect_result
 
     def create_temp(self, abs_cmd, ip, factory, act_cmd):
@@ -62,13 +61,14 @@ class Template:
 
     @staticmethod
     def parse_xml(template_str):
-        template = dict()
-        expcet_result = []
-        root = ET.fromstring(template_str)
-        for element in root:
-            template['%s' % element.tag] = element.text
-            #parse result
-        return template, expcet_result
+        # template = dict()
+        # expcet_result = []
+        # root = ET.fromstring(template_str)
+        # for element in root:
+        #     template['%s' % element.tag] = element.text
+        #     #parse result
+        # return template, expcet_result
+        return Template.parse_temp(template_str)
 
     def find_temp(self, abs_cmd, ip, factory):
         if (abs_cmd, ip, factory) in self.tempDict:
@@ -77,15 +77,20 @@ class Template:
             return
 
     def find_temp_disk(self, abs_cmd, factory):
-        filedes = open('template', 'r')
+        try:
+            filedes = open('template', 'r')
+        except IOError, e:
+            print 'File %s not found.' % e
+            return {}, []
+
         # temp_dict = json.load(file)
         for line in filedes:
             print "print line:", line
             template, expect_result = self.parse_temp(line)
-            print "template:", template
+            print "print template:", template
             if template['abs_cmd'] == abs_cmd and template['factory'] == factory:
-                return template
-        return
+                return template, expect_result
+        return {}, []
 
 def testcase_cfg_and_genXML():
     tmp = Template()

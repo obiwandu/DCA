@@ -9,9 +9,10 @@ class TemplateNew:
         self.exec_para = dict()
         self.executable = False
         self.accessible = False
+        self.path = 'template'
         return
 
-    def init(self, abs_cmd, act_cmd, factory, model, exp_res):
+    def from_para(self, abs_cmd, act_cmd, factory, model, exp_res):
         self.cmd['abs_cmd'] = abs_cmd
         self.cmd['act_cmd'] = act_cmd
         self.cmd['factory'] = factory
@@ -25,7 +26,8 @@ class TemplateNew:
         return
 
     def from_xml(self, str_xml):
-        self.parse_xml(str_xml)
+        # self.parse_xml(str_xml)
+        self.cmd, self.exp_res, self.exec_para = TemplateNew.parse_xml(str_xml)
         self.accessible = True
         self.executable = True
         return
@@ -49,20 +51,23 @@ class TemplateNew:
     #         self.executable = True
     #     return
 
-    def parse_xml(self, str_xml):
+    @staticmethod
+    def parse_xml(str_xml):
+        cmd = dict()
+        exp_res = []
+        exec_para = dict()
         root = ET.fromstring(str_xml)
         for element in root:
             if element.tag == 'cmd':
                 for subElement in element:
-                    self.cmd['%s' % subElement.tag] = subElement.text
+                    cmd['%s' % subElement.tag] = subElement.text
             elif element.tag == 'exp_res':
                 for subElement in element:
-                    self.exp_res.append((subElement.tag, subElement.text))
+                    exp_res.append((subElement.tag, subElement.text))
             elif element.tag == 'exec_para':
                 for subElement in element:
-                    self.exec_para['%s' % subElement.tag] = subElement.text
-        # return template, expect_result
-        return
+                    exec_para['%s' % subElement.tag] = subElement.text
+        return cmd, exp_res, exec_para
 
     def to_xml(self):
         if self.accessible:
@@ -92,7 +97,33 @@ class TemplateNew:
             self.executable = True
         return
 
-    def find(self):
+    def config_path(self, path):
+        self.path = path
+        return
+
+    def save(self):
+        if self.accessible and not self.executable:
+            fp = open(self.path, 'a')
+            fp.write(self.to_xml() + "\n")
+            fp.close()
+        return
+
+    @staticmethod
+    def find(abs_cmd, factory, model):
+        try:
+            fp = open('template', 'r')
+        except IOError, e:
+            # print 'File %s not found.' % e
+            return
+
+        for line in fp:
+            print "print line:", line
+            cmd, exp_res, exec_para = TemplateNew.parse_xml(line)
+            print cmd
+            print exp_res
+            print exec_para
+            if cmd['abs_cmd'] == abs_cmd and cmd['factory'] == factory and cmd['model'] == model:
+                return line
         return
 
 """simplest template creation, not executable"""

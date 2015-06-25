@@ -4,6 +4,8 @@ import eventlet
 from template import Template
 from eos.lib.http import HTTP
 from telnetlib import Telnet
+from new_template import TemplateNew
+import re
 
 class Agent:
     def __init__(self):
@@ -71,10 +73,14 @@ class MsgHandler(object):
     def msg_handler(self, msg):
         print "msg being handling"
         # para = (msg['PATH_INFO']).split(";")
-        template = Template.parse_temp(msg['PATH_INFO'])
-        print template
-        print "execute cmd: %s" % template['act_cmd']
-        return self.msg_executor(template['ip'], template['userid'], template['pw'], template['act_cmd'])
+        # template, expect_result = Template.parse_temp(msg['PATH_INFO'])
+        temp = TemplateNew()
+        temp.from_xml(msg['PATH_INFO'])
+        print "cmd:", temp.cmd
+        print "exp_res:", temp.exp_res
+        print "exec_para", temp.exec_para
+        # return self.msg_executor(template['ip'], template['userid'], template['pw'], template['act_cmd'])
+        return self.msg_executor(temp.exec_para['ip'], temp.exec_para['dev_id'], temp.exec_para['dev_pw'], temp.cmd['act_cmd'])
 
     @staticmethod
     def msg_executor(ip, userid, pw, cmd):
@@ -102,7 +108,8 @@ class MsgHandler(object):
 
     @staticmethod
     def feedback_parser(feedback):
-
+        result = re.match('\d*', feedback)
+        print "match:", result.group()
         return
 
 def http_request(cmd, ip):

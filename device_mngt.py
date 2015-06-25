@@ -4,4 +4,4 @@ class DeviceManagemnt:
         return
 
     def get_factory(self, ip):
-        return "H3C"
+        return "HW", "150"
