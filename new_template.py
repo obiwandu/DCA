@@ -117,16 +117,20 @@ class TemplateNew:
             return
 
         for line in fp:
-            print "print line:", line
+            # print "print line:", line
             cmd, exp_res, exec_para = TemplateNew.parse_xml(line)
-            print cmd
-            print exp_res
-            print exec_para
+            # print cmd
+            # print exp_res
+            # print exec_para
             if cmd['abs_cmd'] == abs_cmd and cmd['factory'] == factory and cmd['model'] == model:
                 return line
         return
 
-"""simplest template creation, not executable"""
+    def show(self):
+        print 'cmd:', self.cmd
+        print 'exp_res:', self.exp_res
+        print 'exec_para', self.exec_para
+        """simplest template creation, not executable"""
 def tc1():
     print "---------------tc 1 start-----------------"
     exp_res = [("output1", "\w"), ("output2", "\d")]
