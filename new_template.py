@@ -9,7 +9,7 @@ class TemplateNew:
         self.exec_para = dict()
         self.executable = False
         self.accessible = False
-        self.path = 'template'
+        self.path = 'template.xml'
         return
 
     def from_para(self, abs_cmd, act_cmd, factory, model, exp_res):
@@ -108,12 +108,11 @@ class TemplateNew:
             fp.close()
         return
 
-    @staticmethod
-    def find(abs_cmd, factory, model):
+    def find(self, abs_cmd, factory, model):
         try:
-            fp = open('template', 'r')
+            fp = open(self.path, 'r')
         except IOError, e:
-            # print 'File %s not found.' % e
+            print 'File %s not found.' % e
             return
 
         for line in fp:
