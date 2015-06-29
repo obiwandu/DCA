@@ -19,11 +19,12 @@ import httplib, urllib
 from new_template import TemplateNew
 from datastructure import Identity, Command
 from cmdline_interface import CmdLineInterface
+import importlib
 
 class Master:
-    def __init__(self, inputIf):
+    def __init__(self, input_if):
         # init the input interface
-        self.inputIf = inputIf()
+        self.input_if = input_if()
         self.ip = None
         self.dev_id = None
         self.dev_pw = None
@@ -44,8 +45,8 @@ class Master:
         factory, model = dev.get_factory(ip)
         abs_cmd = "dir"
 
-        str_xml = TemplateNew.find(abs_cmd, factory, model)
         temp = TemplateNew()
+        str_xml = temp.find(abs_cmd, factory, model)
         # template = self.temp.find_temp_disk(abs_cmd, factory)
         if str_xml:
             temp.from_xml(str_xml)
@@ -64,7 +65,7 @@ class Master:
         return
 
     def login(self):
-        self.inputIf.login(self.identity)
+        self.input_if.login(self.identity)
         dev = DeviceManagemnt()
         self.identity.factory, self.identity.model = dev.get_factory(self.identity.ip)
         self.logged = True
@@ -72,7 +73,7 @@ class Master:
 
     def cfg_cmd(self):
         if self.logged:
-            self.inputIf.cfg_cmd(self.command)
+            self.input_if.cfg_cmd(self.command)
             temp = TemplateNew()
             temp.from_para(self.command.abs_cmd, self.command.act_cmd, self.identity.factory, self.identity.model, self.command.exp_res)
             temp.save()
@@ -80,7 +81,7 @@ class Master:
 
     def exec_cmd(self):
         if self.logged:
-            self.inputIf.exec_cmd(self.command)
+            self.input_if.exec_cmd(self.command)
             temp = TemplateNew()
             # str_xml = TemplateNew.find(self.command.abs_cmd, self.identity.factory, self.identity.model)
             str_xml = temp.find(self.command.abs_cmd, self.identity.factory, self.identity.model)
@@ -91,6 +92,25 @@ class Master:
                 final_str_xml = temp.to_xml()
                 return http_request(final_str_xml)
         return
+
+    def exec_script(self):
+        if self.logged:
+            # script_name = self.input_if.exec_script()
+            # importlib.import_module(script_name)
+            return self.input_if.exec_script()
+        return
+
+    def exec_script_cmd(self, cmd):
+        self.command.abs_cmd = cmd
+        temp = TemplateNew()
+        # str_xml = TemplateNew.find(self.command.abs_cmd, self.identity.factory, self.identity.model)
+        str_xml = temp.find(self.command.abs_cmd, self.identity.factory, self.identity.model)
+        if str_xml:
+            # temp = TemplateNew()
+            temp.from_xml(str_xml)
+            temp.append(self.identity.ip, self.identity.dev_id, self.identity.dev_pw)
+            final_str_xml = temp.to_xml()
+            return http_request(final_str_xml)
 
     def show_temp(self):
         # print self.temp.tempDict
@@ -141,17 +161,6 @@ class Master:
     #
     #     # http_request(abs_cmd, ip, factory)
     #     return
-
-    def exec_script(self):
-        ip = raw_input("Input the IP address:")
-        dev_id = raw_input("Input the device user id:")
-        dev_pw = getpass.getpass()
-
-        dev = DeviceManagemnt()
-        factory, model = dev.get_factory(ip)
-
-        script_name = raw_input("Input the script to be executed:")
-        return
 
     def exec_cmd_disk(self):
         temp = TemplateNew()
@@ -253,6 +262,24 @@ def start_master2():
             master.exec_script()
 
 if __name__ == "__main__":
-    start_master2()
+    # start_master2()
     # Master.exec_cmd("show cfg", "1.1.1.1", "H3C")
-
+    master = Master(CmdLineInterface)
+    master.login()
+    while True:
+        opr_type = raw_input("operation type:")
+        # if opr_type == "cfg":
+        #     master.cfg_cmd()
+        # elif opr_type == "exec":
+        #     master.exec_cmd()
+        if opr_type == "show temp":
+            master.show_temp()
+        elif opr_type == "cfg":
+            master.cfg_cmd()
+        elif opr_type == "exec":
+            master.exec_cmd()
+        elif opr_type == "test":
+            master.test()
+        elif opr_type == "script":
+            script_name = master.exec_script()
+            importlib.import_module(script_name)

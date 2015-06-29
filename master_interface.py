@@ -14,3 +14,7 @@ class MasterInterface:
     @abstractmethod
     def cfg_cmd(self, command):
         pass
+
+    @abstractmethod
+    def exec_script(self, script_name):
+        pass
