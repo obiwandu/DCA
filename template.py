@@ -82,13 +82,12 @@ class Template:
             print 'Template file %s not found.' % e
             return
 
-        command = Command()
-        identity = Identity()
         for line in fp:
             # print "print line:", line
             command, identity = Template.parse_xml(line)
             if command.abs_cmd == abs_cmd and identity.dev_type == ident.dev_type and identity.dev_factory == ident.dev_factory and identity.dev_model == ident.dev_model:
-                return line
+                command, identity = Template.parse_xml(line)
+                return command
             # cmd, exp_res, exec_para = TemplateNew.parse_xml(line)
             # print cmd
             # print exp_res

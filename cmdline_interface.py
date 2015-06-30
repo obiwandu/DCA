@@ -1,6 +1,8 @@
 __author__ = 'User'
 
 from master_interface import MasterInterface
+from datastructure import Command
+from datastructure import Identity
 import getpass
 
 class CmdLineInterface(MasterInterface):
@@ -21,12 +23,11 @@ class CmdLineInterface(MasterInterface):
         for i in range(int(result_cnt)):
             key = raw_input("Input the key of result:")
             val = raw_input("Input the regular expression of result:")
-            command.exp_res.append((key, val))
+            command.exp_result.append((key, val))
         return
 
-    def exec_cmd(self, command):
-        command.abs_cmd = raw_input("Input the abstract command:")
-        return
+    def exec_cmd(self):
+        return raw_input("Input the abstract command:")
 
     def exec_script(self):
         return raw_input('Input the script to be executed:')

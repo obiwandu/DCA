@@ -16,5 +16,9 @@ class MasterInterface:
         pass
 
     @abstractmethod
-    def exec_script(self, script_name):
+    def exec_cmd(self):
+        pass
+
+    @abstractmethod
+    def exec_script(self):
         pass

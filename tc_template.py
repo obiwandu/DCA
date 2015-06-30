@@ -54,7 +54,10 @@ def tc4():
     ident.dev_factory = 'HW'
     ident.dev_type = 'switch'
     ident.dev_model = '150'
-    print template.find('show', ident)
+    cmd = Command()
+    cmd, ident = template.find('show', ident)
+    cmd.show()
+    ident.show()
 
 if __name__ == "__main__":
     # testcase_gen_xml()

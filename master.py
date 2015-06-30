@@ -20,16 +20,12 @@ from new_template import TemplateNew
 from datastructure import Identity, Command
 from cmdline_interface import CmdLineInterface
 import importlib
+from template import Template
 
 class Master:
     def __init__(self, input_if):
         # init the input interface
         self.input_if = input_if()
-        self.ip = None
-        self.dev_id = None
-        self.dev_pw = None
-        self.factory = None
-        self.model = None
         self.logged = False
 
         self.identity = Identity()
@@ -37,66 +33,47 @@ class Master:
         return
 
     def test(self):
-        ip =  "10.65.254.70"
-        userid = ""
-        pw = "huawei123"
-
+        self.identity.ip =  '10.65.254.70'
+        self.identity.dev_id = ''
+        self.identity.dev_pw = 'huawei123'
         dev = DeviceManagemnt()
-        factory, model = dev.get_factory(ip)
-        abs_cmd = "dir"
+        dev.get_devinfo(self.identity)
+        command = Command()
+        command.abs_cmd = 'show'
 
-        temp = TemplateNew()
-        str_xml = temp.find(abs_cmd, factory, model)
-        # template = self.temp.find_temp_disk(abs_cmd, factory)
-        if str_xml:
-            temp.from_xml(str_xml)
-            temp.append(ip, userid, pw)
-            http_request(temp.to_xml())
-        # else:
-        #     act_cmd = raw_input("No template found. Input the actual command:")
-        #     temp.from_para(abs_cmd, act_cmd, factory, model, exp_res)
-        #     template_str = self.temp.create_temp_disk(abs_cmd, factory, act_cmd)
-        #     template = Template.parse_xml(template_str)
-        #     template['ip'] = ip
-        #     template['userid'] = userid
-        #     template['pw'] = pw
-        #     template_str = Template.generate_xml(template)
-        #     http_request(template_str)
+        template = Template()
+        command = template.find(command.abs_cmd, self.identity)
+        if command:
+                str_xml = Template.to_xml(command, self.identity)
+                return http_request(str_xml)
         return
 
     def login(self):
         self.input_if.login(self.identity)
         dev = DeviceManagemnt()
-        self.identity.factory, self.identity.model = dev.get_factory(self.identity.ip)
+        dev.get_devinfo(self.identity)
         self.logged = True
         return
 
     def cfg_cmd(self):
         if self.logged:
             self.input_if.cfg_cmd(self.command)
-            temp = TemplateNew()
-            temp.from_para(self.command.abs_cmd, self.command.act_cmd, self.identity.factory, self.identity.model, self.command.exp_res)
-            temp.save()
+            template = Template()
+            template.to_template(self.command, self.identity)
         return
 
     def exec_cmd(self):
         if self.logged:
-            self.input_if.exec_cmd(self.command)
-            temp = TemplateNew()
-            # str_xml = TemplateNew.find(self.command.abs_cmd, self.identity.factory, self.identity.model)
-            str_xml = temp.find(self.command.abs_cmd, self.identity.factory, self.identity.model)
-            if str_xml:
-                # temp = TemplateNew()
-                temp.from_xml(str_xml)
-                temp.append(self.identity.ip, self.identity.dev_id, self.identity.dev_pw)
-                final_str_xml = temp.to_xml()
-                return http_request(final_str_xml)
+            abs_cmd = self.input_if.exec_cmd()
+            template = Template()
+            command = template.find(abs_cmd, self.identity)
+            if command:
+                str_xml = Template.to_xml(command, self.identity)
+                return http_request(str_xml)
         return
 
     def exec_script(self):
         if self.logged:
-            # script_name = self.input_if.exec_script()
-            # importlib.import_module(script_name)
             return self.input_if.exec_script()
         return
 
@@ -104,12 +81,13 @@ class Master:
         self.command.abs_cmd = cmd
         temp = TemplateNew()
         # str_xml = TemplateNew.find(self.command.abs_cmd, self.identity.factory, self.identity.model)
-        str_xml = temp.find(self.command.abs_cmd, self.identity.factory, self.identity.model)
-        if str_xml:
+        command = temp.find(cmd, self.identity)
+        if command:
+            str_xml = Template.to_xml(command, self.identity)
             # temp = TemplateNew()
-            temp.from_xml(str_xml)
-            temp.append(self.identity.ip, self.identity.dev_id, self.identity.dev_pw)
-            final_str_xml = temp.to_xml()
+            # temp.from_xml(str_xml)
+            # temp.append(self.identity.ip, self.identity.dev_id, self.identity.dev_pw)
+            # final_str_xml = temp.to_xml()
             return http_request(final_str_xml)
 
     def show_temp(self):
