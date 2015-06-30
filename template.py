@@ -1,106 +1,105 @@
 import xml.etree.ElementTree as ET
-import json
+from datastructure import Command
+from datastructure import Identity
 
 class Template:
     def __init__(self):
-        self.tempDict = dict()
-        self.count = 0
+        self.template_path = 'template.xml'
+        return
+
+    def to_template(self, command, identity):
+        cmd = Command()
+        ident = Identity()
+
+        cmd.abs_cmd = command.abs_cmd
+        cmd.act_cmd = command.act_cmd
+        cmd.exp_result = command.exp_result
+        ident.dev_type = identity.dev_type
+        ident.dev_factory = identity.dev_factory
+        ident.dev_model = identity.dev_model
+        str_xml = Template.to_xml(cmd, ident)
+        self.save(str_xml)
         return
 
     @staticmethod
-    def parse_temp(temp_str):
-        template = dict()
-        expect_result = []
-        root = ET.fromstring(temp_str)
-        for element in root:
-            if element.tag != 'expect_result':
-                template['%s' % element.tag] = element.text
-            else:
-                for subElement in element:
-                    expect_result.append((subElement.tag, subElement.text))
-        return template, expect_result
+    def to_xml(command, identity):
+        root = ET.Element('template')
 
-    def create_temp(self, abs_cmd, ip, factory, act_cmd):
-        new_template = dict()
-        new_template['abs_cmd'] = abs_cmd
-        new_template['ip'] = ip
-        new_template['factory'] = factory
-        new_template['act_cmd'] = act_cmd
-        new_template['xmlStr'] = self.generate_xml(new_template)
-        new_template_str = new_template['xmlStr']
-        self.count += 1
-        # self.tempDict['%s' % self.count] = new_template_str
-        self.tempDict[(abs_cmd, ip, factory)] = new_template_str
-        return self.count, new_template_str
-
-    def create_temp_disk(self, abs_cmd, factory, act_cmd, expect_result):
-        new_template = dict()
-        new_template['abs_cmd'] = abs_cmd
-        new_template['factory'] = factory
-        new_template['act_cmd'] = act_cmd
-        new_template_str = self.generate_xml(new_template, expect_result)
-        self.count += 1
-        file = open('template', 'a')
-        # json.dump(new_template_str, file)
-        file.write(new_template_str + "\n")
-        file.close()
-        return new_template_str
-
-    @staticmethod
-    def generate_xml(template, expect_result):
-        root = ET.Element('root')
-        for key in template.keys():
-            element = ET.SubElement(root, '%s' % key)
-            element.text = template['%s' % key]
-        result = ET.SubElement(root, 'expect_result')
-        for field in expect_result:
-            element = ET.SubElement(result, '%s' % field[0])
+        cmd = ET.SubElement(root, 'command')
+        element = ET.SubElement(cmd, 'abs_cmd')
+        element.text = command.abs_cmd
+        element = ET.SubElement(cmd, 'act_cmd')
+        element.text = command.act_cmd
+        exp_res = ET.SubElement(cmd, 'exp_result')
+        for field in command.exp_result:
+            element = ET.SubElement(exp_res, '%s' % field[0])
             element.text = field[1]
-        # ET.dump(root)
+
+        ident = ET.SubElement(root, 'identity')
+        if identity.ip:
+            element = ET.SubElement(ident, 'ip')
+            element.text = identity.ip
+        if identity.dev_id:
+            element = ET.SubElement(ident, 'dev_id')
+            element.text = identity.dev_id
+        if identity.dev_pw:
+            element = ET.SubElement(ident, 'dev_pw')
+            element.text = identity.dev_pw
+        element = ET.SubElement(ident, 'dev_type')
+        element.text = identity.dev_type
+        element = ET.SubElement(ident, 'dev_factory')
+        element.text = identity.dev_factory
+        element = ET.SubElement(ident, 'dev_model')
+        element.text = identity.dev_model
+
         return ET.tostring(root)
 
     @staticmethod
-    def parse_xml(template_str):
-        # template = dict()
-        # expcet_result = []
-        # root = ET.fromstring(template_str)
-        # for element in root:
-        #     template['%s' % element.tag] = element.text
-        #     #parse result
-        # return template, expcet_result
-        return Template.parse_temp(template_str)
+    def parse_xml(str_xml):
+        command = Command()
+        identity = Identity()
+        root = ET.fromstring(str_xml)
+        for element in root:
+            if element.tag == 'command':
+                for subElement in element:
+                    if subElement.tag != 'exp_result':
+                        setattr(command, subElement.tag, subElement.text)
+                    else:
+                        for field in subElement:
+                            command.exp_result.append((field.tag, field.text))
+            elif element.tag == 'identity':
+                for subElement in element:
+                    setattr(identity, subElement.tag, subElement.text)
+        return command, identity
 
-    def find_temp(self, abs_cmd, ip, factory):
-        if (abs_cmd, ip, factory) in self.tempDict:
-            return self.tempDict[(abs_cmd, ip, factory)]
-        else:
+    def config_path(self, new_path):
+        self.template_path = new_path
+
+    def find(self, abs_cmd, ident):
+        try:
+            fp = open(self.template_path, 'r')
+        except IOError, e:
+            print 'Template file %s not found.' % e
             return
 
-    def find_temp_disk(self, abs_cmd, factory):
-        try:
-            filedes = open('template', 'r')
-        except IOError, e:
-            print 'File %s not found.' % e
-            return {}, []
+        command = Command()
+        identity = Identity()
+        for line in fp:
+            # print "print line:", line
+            command, identity = Template.parse_xml(line)
+            if command.abs_cmd == abs_cmd and identity.dev_type == ident.dev_type and identity.dev_factory == ident.dev_factory and identity.dev_model == ident.dev_model:
+                return line
+            # cmd, exp_res, exec_para = TemplateNew.parse_xml(line)
+            # print cmd
+            # print exp_res
+            # print exec_para
+            # if cmd['abs_cmd'] == abs_cmd and cmd['factory'] == factory and cmd['model'] == model:
+            #     return line
+        return
 
-        # temp_dict = json.load(file)
-        for line in filedes:
-            print "print line:", line
-            template, expect_result = self.parse_temp(line)
-            print "print template:", template
-            if template['abs_cmd'] == abs_cmd and template['factory'] == factory:
-                return template, expect_result
-        return {}, []
+    def save(self, str_xml):
+        fp = open(self.template_path, 'a')
+        fp.write(str_xml + "\n")
+        fp.close()
+        return
 
-def testcase_cfg_and_genXML():
-    tmp = Template()
-    res = tmp.create_temp("show cfg", "1.1.1.1", "H3C", "show cfg on H3C")
-    # print "create template"
-    # print res
-    parse_res = Template.parse_temp(res[1])
-    # print "parse template"
-    # print parse_res
-
-if __name__ == "__main__":
-    # testcase_gen_xml()
-    testcase_cfg_and_genXML()

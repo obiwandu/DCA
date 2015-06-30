@@ -1,5 +1,5 @@
 __author__ = 'User'
-"""it's a data structure that stores all template data, and can be converted into xml conveniently"""
+# it's a data structure that stores all template data, and can be converted into xml conveniently
 import xml.etree.ElementTree as ET
 
 class TemplateNew:
