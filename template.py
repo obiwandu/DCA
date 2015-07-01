@@ -99,6 +99,7 @@ class Template:
     def save(self, str_xml):
         fp = open(self.template_path, 'a')
         fp.write(str_xml + "\n")
+        # fp.write(str_xml)
         fp.close()
         return
 

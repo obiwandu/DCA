@@ -5,16 +5,18 @@ from telnetlib import Telnet
 from new_template import TemplateNew
 import re
 from gevent.wsgi import WSGIServer
+from telnet_control import TelnetControl, TestTelnetControl
 from datastructure import Identity, Command
 
 __author__ = 'User'
 
 class Handler:
-    def __init__(self, env):
+    def __init__(self, env, control):
         print "msg being handling"
         # para = (msg['PATH_INFO']).split(";")
         # template, expect_result = Template.parse_temp(msg['PATH_INFO'])
 
+        self.control = control()
         self.command, self.identity = Template.parse_xml(env['PATH_INFO'])
         self.command.show()
         self.identity.show()
@@ -40,14 +42,17 @@ class Handler:
         # # dev_id = self.template.exec_para['dev_id']
         # dev_pw = self.template.exec_para['dev_pw']
         # act_cmd = self.template.cmd['act_cmd']
-        tn = Telnet(ip)
-        print tn.read_until("Password:")
-        tn.write(dev_pw + "\n")
-        print tn.read_until("???", 5)
-        tn.write(act_cmd + "\n")
-        tn.write("q\n")
-        feedback = tn.read_until("???", 5)
-        print "feedback:", feedback
+        self.control.login(self.identity)
+        feedback = self.control.exec_cmd(self.command)
+
+        # tn = Telnet(ip)
+        # print tn.read_until("Password:")
+        # tn.write(dev_pw + "\n")
+        # print tn.read_until("???", 5)
+        # tn.write(act_cmd + "\n")
+        # tn.write("q\n")
+        # feedback = tn.read_until("???", 5)
+        # print "feedback:", feedback
         return feedback
 
     def feedback_parser(self, feedback):
@@ -72,16 +77,17 @@ def application(env, start_response):
 
     print "new msg arrives"
     print env
-    handler = Handler(env)
-    feedback = handler.test_executor()
-    result = handler.feedback_parser(feedback)
+    handler = Handler(env, TestTelnetControl)
+    msg = handler.msg_executor()
+    # feedback = handler.test_executor()
+    # result = handler.feedback_parser(feedback)
     # msg = self.msg_handler(env)
 
     start_response(code, [('Content-Type', 'text/plain')])
 
     # feedback = self.feedback_parser(msg)
 
-    return ['%s\n' % str(result[0][0])]
+    return ['%s\n' % str(msg)]
 
 if __name__ == "__main__":
     print 'Serving on 8000 starts...'

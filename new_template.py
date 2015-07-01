@@ -117,12 +117,13 @@ class TemplateNew:
 
         for line in fp:
             # print "print line:", line
-            cmd, exp_res, exec_para = TemplateNew.parse_xml(line)
-            # print cmd
-            # print exp_res
-            # print exec_para
-            if cmd['abs_cmd'] == abs_cmd and cmd['factory'] == factory and cmd['model'] == model:
-                return line
+            if line:
+                cmd, exp_res, exec_para = TemplateNew.parse_xml(line)
+                # print cmd
+                # print exp_res
+                # print exec_para
+                if cmd['abs_cmd'] == abs_cmd and cmd['factory'] == factory and cmd['model'] == model:
+                    return line
         return
 
     def show(self):

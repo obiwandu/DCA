@@ -8,9 +8,9 @@ import getpass
 class CmdLineInterface(MasterInterface):
     def login(self, identity):
         #just for test
-        identity.ip = '1.1.1.1'
-        identity.dev_id = 'root'
-        identity.dev_pw = '123456'
+        identity.ip =  '10.137.59.22'
+        identity.dev_id = 'tianyi.dty'
+        identity.dev_pw = 'Mtfbwy626488'
         # identity.ip = raw_input("Input the IP address:")
         # identity.dev_id = raw_input("Input the device user id:")
         # identity.dev_pw = getpass.getpass()

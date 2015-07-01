@@ -21,6 +21,7 @@ from datastructure import Identity, Command
 from cmdline_interface import CmdLineInterface
 import importlib
 from template import Template
+from cmd_script_executor import CmdSession
 
 class Master:
     def __init__(self, input_if):
@@ -33,13 +34,13 @@ class Master:
         return
 
     def test(self):
-        self.identity.ip =  '10.65.254.70'
-        self.identity.dev_id = ''
-        self.identity.dev_pw = 'huawei123'
+        self.identity.ip =  '10.137.59.22'
+        self.identity.dev_id = 'tianyi.dty'
+        self.identity.dev_pw = 'Mtfbwy626488'
         dev = DeviceManagemnt()
         dev.get_devinfo(self.identity)
         command = Command()
-        command.abs_cmd = 'show'
+        command.abs_cmd = 'ipconfig'
 
         template = Template()
         command = template.find(command.abs_cmd, self.identity)
@@ -79,7 +80,7 @@ class Master:
 
     def exec_script_cmd(self, cmd):
         self.command.abs_cmd = cmd
-        temp = TemplateNew()
+        temp = Template()
         # str_xml = TemplateNew.find(self.command.abs_cmd, self.identity.factory, self.identity.model)
         command = temp.find(cmd, self.identity)
         if command:
@@ -187,10 +188,10 @@ def http_request(template_str):
         # ret = HTTP("0.0.0.0", 8000).get(uri)
         ret = HTTP("127.0.0.1", 8000).get(uri)
 
-        print "**************************"
-        print "start printing response:"
-        print ret
-        print "**************************"
+        # print "**************************"
+        # print "start printing response:"
+        # print ret
+        # print "**************************"
 
     except Exception, e:
         print "Print exception:"
@@ -260,4 +261,6 @@ if __name__ == "__main__":
             master.test()
         elif opr_type == "script":
             script_name = master.exec_script()
-            importlib.import_module(script_name)
+            new_script_name = CmdSession.load_script(script_name)
+            new_script_name = new_script_name.split('.')
+            importlib.import_module(new_script_name[0])
