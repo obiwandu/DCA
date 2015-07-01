@@ -5,6 +5,7 @@ from telnetlib import Telnet
 from new_template import TemplateNew
 import re
 from gevent.wsgi import WSGIServer
+from datastructure import Identity, Command
 
 __author__ = 'User'
 
@@ -13,9 +14,14 @@ class Handler:
         print "msg being handling"
         # para = (msg['PATH_INFO']).split(";")
         # template, expect_result = Template.parse_temp(msg['PATH_INFO'])
-        self.template = TemplateNew()
-        self.template.from_xml(env['PATH_INFO'])
-        self.template.show()
+
+        self.command, self.identity = Template.parse_xml(env['PATH_INFO'])
+        self.command.show()
+        self.identity.show()
+        # self.msg_executor()
+        # self.template = TemplateNew()
+        # self.template.from_xml(env['PATH_INFO'])
+        # self.template.show()
         # return self.msg_executor(template['ip'], template['userid'], template['pw'], template['act_cmd'])
 
         # feedback = self.msg_executor()
@@ -27,10 +33,13 @@ class Handler:
                  'file1           2015             10086\n')
 
     def msg_executor(self):
-        ip = self.template.exec_para['ip']
-        # dev_id = self.template.exec_para['dev_id']
-        dev_pw = self.template.exec_para['dev_pw']
-        act_cmd = self.template.cmd['act_cmd']
+        ip = self.identity.ip
+        dev_pw = self.identity.dev_pw
+        act_cmd = self.command.act_cmd
+        # ip = self.template.exec_para['ip']
+        # # dev_id = self.template.exec_para['dev_id']
+        # dev_pw = self.template.exec_para['dev_pw']
+        # act_cmd = self.template.cmd['act_cmd']
         tn = Telnet(ip)
         print tn.read_until("Password:")
         tn.write(dev_pw + "\n")
@@ -42,7 +51,8 @@ class Handler:
         return feedback
 
     def feedback_parser(self, feedback):
-        exp_res = self.template.exp_res
+        # exp_res = self.template.exp_res
+        exp_res = self.command.exp_result
         if exp_res:
             final_res = []
             for key, regex in exp_res:
@@ -54,7 +64,6 @@ class Handler:
             return final_res
         else:
             return
-
 
 def application(env, start_response):
     code = '200 OK'
@@ -73,7 +82,6 @@ def application(env, start_response):
     # feedback = self.feedback_parser(msg)
 
     return ['%s\n' % str(result[0][0])]
-
 
 if __name__ == "__main__":
     print 'Serving on 8000 starts...'

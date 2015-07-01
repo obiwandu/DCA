@@ -88,7 +88,7 @@ class Master:
             # temp.from_xml(str_xml)
             # temp.append(self.identity.ip, self.identity.dev_id, self.identity.dev_pw)
             # final_str_xml = temp.to_xml()
-            return http_request(final_str_xml)
+            return http_request(str_xml)
 
     def show_temp(self):
         # print self.temp.tempDict
