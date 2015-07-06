@@ -12,21 +12,19 @@ __author__ = 'User'
 
 class Handler:
     def __init__(self, env, control):
-        print "msg being handling"
-        # para = (msg['PATH_INFO']).split(";")
-        # template, expect_result = Template.parse_temp(msg['PATH_INFO'])
-
+        print "msg being handling..."
         self.control = control()
-        self.command, self.identity = Template.parse_xml(env['PATH_INFO'])
-        self.command.show()
-        self.identity.show()
-        # self.msg_executor()
-        # self.template = TemplateNew()
-        # self.template.from_xml(env['PATH_INFO'])
-        # self.template.show()
-        # return self.msg_executor(template['ip'], template['userid'], template['pw'], template['act_cmd'])
-
-        # feedback = self.msg_executor()
+        self.command, self.identity, self.script = Template.parse_xml(env['PATH_INFO'])
+        if not self.script:
+            self.type = 'cmd'
+            self.command.show()
+            self.identity.show()
+        else:
+            self.type = 'script'
+            self.script_name = 'agent_script.py'
+            file = open(self.script_name, 'w')
+            file.write(self.script)
+            file.close()
         return
 
     def test_executor(self):
@@ -35,24 +33,17 @@ class Handler:
                  'file1           2015             10086\n')
 
     def msg_executor(self):
-        ip = self.identity.ip
-        dev_pw = self.identity.dev_pw
-        act_cmd = self.command.act_cmd
-        # ip = self.template.exec_para['ip']
-        # # dev_id = self.template.exec_para['dev_id']
-        # dev_pw = self.template.exec_para['dev_pw']
-        # act_cmd = self.template.cmd['act_cmd']
-        self.control.login(self.identity)
-        feedback = self.control.exec_cmd(self.command)
+        if self.type == 'cmd':
+            self.control.login(self.identity)
+            feedback = self.control.exec_cmd(self.command)
+        elif self.type == 'script':
+            # feedback = self.control.exec_script(self.script)
+            result = dict()
+            execfile(self.script_name, dict(), result)
+            feedback = result['script_ret']
+        else:
+            feedback = 'not handled'
 
-        # tn = Telnet(ip)
-        # print tn.read_until("Password:")
-        # tn.write(dev_pw + "\n")
-        # print tn.read_until("???", 5)
-        # tn.write(act_cmd + "\n")
-        # tn.write("q\n")
-        # feedback = tn.read_until("???", 5)
-        # print "feedback:", feedback
         return feedback
 
     def feedback_parser(self, feedback):
@@ -79,13 +70,7 @@ def application(env, start_response):
     print env
     handler = Handler(env, TestTelnetControl)
     msg = handler.msg_executor()
-    # feedback = handler.test_executor()
-    # result = handler.feedback_parser(feedback)
-    # msg = self.msg_handler(env)
-
     start_response(code, [('Content-Type', 'text/plain')])
-
-    # feedback = self.feedback_parser(msg)
 
     return ['%s\n' % str(msg)]
 

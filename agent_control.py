@@ -14,3 +14,4 @@ class AgentControl:
     @abstractmethod
     def exec_cmd(self, command):
         pass
+

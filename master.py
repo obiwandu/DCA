@@ -73,22 +73,32 @@ class Master:
                 return http_request(str_xml)
         return
 
+    # execute a single atomic command from parameter
+    def exec_script_cmd(self, cmd):
+        self.command.abs_cmd = cmd
+        temp = Template()
+        command = temp.find(cmd, self.identity)
+        if command:
+            str_xml = Template.to_xml(command, self.identity)
+            return http_request(str_xml)
+
+    # execute a whole script containing atomic command(But execute separately)
     def exec_script(self):
         if self.logged:
             return self.input_if.exec_script()
         return
 
-    def exec_script_cmd(self, cmd):
-        self.command.abs_cmd = cmd
-        temp = Template()
-        # str_xml = TemplateNew.find(self.command.abs_cmd, self.identity.factory, self.identity.model)
-        command = temp.find(cmd, self.identity)
-        if command:
-            str_xml = Template.to_xml(command, self.identity)
-            # temp = TemplateNew()
-            # temp.from_xml(str_xml)
-            # temp.append(self.identity.ip, self.identity.dev_id, self.identity.dev_pw)
-            # final_str_xml = temp.to_xml()
+    def exec_script_by_transfer(self):
+        if self.logged:
+            script_name = self.input_if.exec_script()
+            new_script_name = CmdSession.translate_script(script_name)
+            try:
+                fp = open(new_script_name, 'r')
+            except IOError, e:
+                print 'Script file %s not found.' % e
+                return
+            str_script = fp.read()
+            str_xml = Template.to_xml(None, None, str_script)
             return http_request(str_xml)
 
     def show_temp(self):
@@ -105,24 +115,24 @@ class Master:
 
     # def cfg_cmd_main(self):
 
-    def cfg_cmd_disk(self):
-        temp = TemplateNew()
-
-        abs_cmd = raw_input("Input the abstract command:")
-        factory = raw_input("Input the factory:")
-        model = raw_input("Input the model:")
-        act_cmd = raw_input("Input the actual command:")
-        result_cnt = raw_input("Input the number of result field:")
-        expect_result = []
-        for i in range(int(result_cnt)):
-            key = raw_input("Input the key of result:")
-            val = raw_input("Input the regular expression of result:")
-            expect_result.append((key, val))
-
-        temp.from_para(abs_cmd, act_cmd, factory, model, expect_result)
-        temp.save()
-        # self.temp.create_temp_disk(abs_cmd, factory, act_cmd, expect_result)
-        return
+    # def cfg_cmd_disk(self):
+    #     temp = TemplateNew()
+    #
+    #     abs_cmd = raw_input("Input the abstract command:")
+    #     factory = raw_input("Input the factory:")
+    #     model = raw_input("Input the model:")
+    #     act_cmd = raw_input("Input the actual command:")
+    #     result_cnt = raw_input("Input the number of result field:")
+    #     expect_result = []
+    #     for i in range(int(result_cnt)):
+    #         key = raw_input("Input the key of result:")
+    #         val = raw_input("Input the regular expression of result:")
+    #         expect_result.append((key, val))
+    #
+    #     temp.from_para(abs_cmd, act_cmd, factory, model, expect_result)
+    #     temp.save()
+    #     # self.temp.create_temp_disk(abs_cmd, factory, act_cmd, expect_result)
+    #     return
 
     # def exec_cmd(self):
     #     abs_cmd = raw_input("Input the abstract command:")
@@ -141,44 +151,44 @@ class Master:
     #     # http_request(abs_cmd, ip, factory)
     #     return
 
-    def exec_cmd_disk(self):
-        temp = TemplateNew()
-
-        ip = raw_input("Input the IP address:")
-        dev_id = raw_input("Input the device user id:")
-        dev_pw = getpass.getpass()
-
-        dev = DeviceManagemnt()
-        factory, model = dev.get_factory(ip)
-
-        abs_cmd = raw_input("Input the abstract command:")
-
-        str_xml = TemplateNew.find(abs_cmd, factory, model)
-        # template, expect_result = self.temp.find_temp_disk(abs_cmd, factory)
-        if str_xml:
-            # print "matched XML:", str_xml
-            temp.from_xml(str_xml)
-            temp.append(ip, dev_id, dev_pw)
-            final_str_xml = temp.to_xml()
-            # print "final XML:", final_str_xml
-            http_request(final_str_xml)
-        else:
-            act_cmd = raw_input("No template found. Input the actual command:")
-            result_cnt = raw_input("Input the number of result field:")
-            expect_result = []
-            for i in range(int(result_cnt)):
-                key = raw_input("Input the key of result:")
-                val = raw_input("Input the regular expression of result:")
-                expect_result.append((key, val))
-            temp.from_para(abs_cmd, act_cmd, factory, model, expect_result)
-            temp.save()
-            temp.append(ip, dev_id, dev_pw)
-            final_str_xml = temp.to_xml()
-            # print "final XML:", final_str_xml
-            http_request(final_str_xml)
-
-        # http_request(abs_cmd, ip, factory)
-        return
+    # def exec_cmd_disk(self):
+    #     temp = TemplateNew()
+    #
+    #     ip = raw_input("Input the IP address:")
+    #     dev_id = raw_input("Input the device user id:")
+    #     dev_pw = getpass.getpass()
+    #
+    #     dev = DeviceManagemnt()
+    #     factory, model = dev.get_factory(ip)
+    #
+    #     abs_cmd = raw_input("Input the abstract command:")
+    #
+    #     str_xml = TemplateNew.find(abs_cmd, factory, model)
+    #     # template, expect_result = self.temp.find_temp_disk(abs_cmd, factory)
+    #     if str_xml:
+    #         # print "matched XML:", str_xml
+    #         temp.from_xml(str_xml)
+    #         temp.append(ip, dev_id, dev_pw)
+    #         final_str_xml = temp.to_xml()
+    #         # print "final XML:", final_str_xml
+    #         http_request(final_str_xml)
+    #     else:
+    #         act_cmd = raw_input("No template found. Input the actual command:")
+    #         result_cnt = raw_input("Input the number of result field:")
+    #         expect_result = []
+    #         for i in range(int(result_cnt)):
+    #             key = raw_input("Input the key of result:")
+    #             val = raw_input("Input the regular expression of result:")
+    #             expect_result.append((key, val))
+    #         temp.from_para(abs_cmd, act_cmd, factory, model, expect_result)
+    #         temp.save()
+    #         temp.append(ip, dev_id, dev_pw)
+    #         final_str_xml = temp.to_xml()
+    #         # print "final XML:", final_str_xml
+    #         http_request(final_str_xml)
+    #
+    #     # http_request(abs_cmd, ip, factory)
+    #     return
 
 def http_request(template_str):
     http_client = None
@@ -201,24 +211,24 @@ def http_request(template_str):
             http_client.close()
     return ret
 
-def start_master1():
-    master = Master(CmdLineInterface)
-    while True:
-        opr_type = raw_input("operation type:")
-        # if opr_type == "cfg":
-        #     master.cfg_cmd()
-        # elif opr_type == "exec":
-        #     master.exec_cmd()
-        if opr_type == "show temp":
-            master.show_temp()
-        elif opr_type == "cfg":
-            master.cfg_cmd_disk()
-        elif opr_type == "exec":
-            master.exec_cmd_disk()
-        elif opr_type == "test":
-            master.test()
-        elif opr_type == "script":
-            master.exec_script()
+# def start_master1():
+#     master = Master(CmdLineInterface)
+#     while True:
+#         opr_type = raw_input("operation type:")
+#         # if opr_type == "cfg":
+#         #     master.cfg_cmd()
+#         # elif opr_type == "exec":
+#         #     master.exec_cmd()
+#         if opr_type == "show temp":
+#             master.show_temp()
+#         elif opr_type == "cfg":
+#             master.cfg_cmd_disk()
+#         elif opr_type == "exec":
+#             master.exec_cmd_disk()
+#         elif opr_type == "test":
+#             master.test()
+#         elif opr_type == "script":
+#             master.exec_script()
 
 def start_master2():
     master = Master(CmdLineInterface)
@@ -246,20 +256,27 @@ if __name__ == "__main__":
     master = Master(CmdLineInterface)
     master.login()
     while True:
-        opr_type = raw_input("operation type:")
+        opr_type = raw_input('operation type:')
         # if opr_type == "cfg":
         #     master.cfg_cmd()
         # elif opr_type == "exec":
         #     master.exec_cmd()
-        if opr_type == "show temp":
+        if opr_type == 'show temp':
             master.show_temp()
-        elif opr_type == "cfg":
+        elif opr_type == 'cfg':
+            master.login()
             master.cfg_cmd()
-        elif opr_type == "exec":
+        elif opr_type == 'exec':
+            master.login()
             master.exec_cmd()
-        elif opr_type == "test":
+        elif opr_type == 'test':
             master.test()
-        elif opr_type == "script":
+        elif opr_type == 'send':
+            # master.login()
+            # script_name, ip, dev_id, dev_pw = master.send_script()
+            master.exec_script_by_transfer()
+        elif opr_type == 'script':
+            master.login()
             script_name = master.exec_script()
             new_script_name = CmdSession.load_script(script_name)
             new_script_name = new_script_name.split('.')
