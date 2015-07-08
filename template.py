@@ -4,7 +4,7 @@ from datastructure import Identity
 
 class Template:
     def __init__(self):
-        self.template_path = 'template.xml'
+        self.template_path = 'template\\template.xml'
         return
 
     def to_template(self, command, identity):
@@ -90,17 +90,10 @@ class Template:
             return
 
         for line in fp:
-            # print "print line:", line
-            command, identity = Template.parse_xml(line)
-            if command.abs_cmd == abs_cmd and identity.dev_type == ident.dev_type and identity.dev_factory == ident.dev_factory and identity.dev_model == ident.dev_model:
-                command, identity = Template.parse_xml(line)
-                return command
-            # cmd, exp_res, exec_para = TemplateNew.parse_xml(line)
-            # print cmd
-            # print exp_res
-            # print exec_para
-            # if cmd['abs_cmd'] == abs_cmd and cmd['factory'] == factory and cmd['model'] == model:
-            #     return line
+            command, identity, script_type = Template.parse_xml(line)
+            if not script_type:
+                if command.abs_cmd == abs_cmd and identity.dev_type == ident.dev_type and identity.dev_factory == ident.dev_factory and identity.dev_model == ident.dev_model:
+                    return command
         return
 
     def save(self, str_xml):

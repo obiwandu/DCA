@@ -33,7 +33,6 @@ class HTTP(object):
 
         return self.response(conn)
 
-    
     def put(self, uri, body='', header='', timeout=60):
         try:
             conn = httplib.HTTPConnection(self.ip, self.port, timeout=timeout)
@@ -82,6 +81,7 @@ class HTTP(object):
             conn.close()
             print "data:"
             print data
-            return json.loads(data)
+            # return json.loads(data)
+            return data
         except Exception, e:
             raise Exception('CALL CONTROLLER: %s:%s ERROR:%s' % (self.ip, self.port, str(e)))

@@ -1,14 +1,9 @@
-import eventlet
+__author__ = 'User'
+
 from template import Template
-from eos.lib.http import HTTP
-from telnetlib import Telnet
-from new_template import TemplateNew
 import re
 from gevent.wsgi import WSGIServer
-from telnet_control import TelnetControl, TestTelnetControl
-from datastructure import Identity, Command
-
-__author__ = 'User'
+from control_protocol.telnet_control import TelnetControl, TestTelnetControl
 
 class Handler:
     def __init__(self, env, control):
@@ -21,7 +16,7 @@ class Handler:
             self.identity.show()
         else:
             self.type = 'script'
-            self.script_name = 'agent_script.py'
+            self.script_name = 'temp_script\\temp_agent_script.py'
             file = open(self.script_name, 'w')
             file.write(self.script)
             file.close()
@@ -35,7 +30,7 @@ class Handler:
     def msg_executor(self):
         if self.type == 'cmd':
             self.control.login(self.identity)
-            feedback = self.control.exec_cmd(self.command)
+            feedback = self.control.exec_cmd(self.command.act_cmd)
         elif self.type == 'script':
             # feedback = self.control.exec_script(self.script)
             result = dict()

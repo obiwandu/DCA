@@ -15,3 +15,6 @@ class AgentControl:
     def exec_cmd(self, command):
         pass
 
+    @abstractmethod
+    def logout(self):
+        pass

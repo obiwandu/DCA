@@ -1,10 +1,6 @@
 __author__ = 'User'
 
-from new_template import TemplateNew
 import re
-import subprocess
-from cmdline_interface import CmdLineInterface
-from webapp_interface import WebAppInterface
 from template import Template
 from device_mngt import DeviceManagemnt
 from datastructure import Command, Identity
@@ -61,7 +57,7 @@ class CmdSession:
     def translate_script(script_name):
         # find all keywords
         try:
-            fp = open('template.xml', 'r')
+            fp = open('template\\template.xml', 'r')
         except IOError, e:
             print 'File %s not found.' % e
             return
@@ -80,7 +76,8 @@ class CmdSession:
             print 'File %s not found.' % e
             return
 
-        new_script_name = "new_" + script_name
+        path, filename = script_name.split('\\')
+        new_script_name = path + "\\new-" + filename
         fout = open(new_script_name, 'w')
 
         device = dict()

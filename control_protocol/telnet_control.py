@@ -18,10 +18,12 @@ class TelnetControl(AgentControl):
     def exec_cmd(self, command):
         self.tn.write(command.act_cmd + "\n")
         feedback = self.tn.read_until('>')
-        self.tn.write('exit\n')
-        feedback = self.tn.read_until('>')
         print "feedback:", feedback
         return feedback
+
+    def logout(self):
+        self.tn.write('exit\n')
+        return
 
 class TestTelnetControl(AgentControl):
     def __init__(self):
@@ -38,14 +40,15 @@ class TestTelnetControl(AgentControl):
         return
 
     def exec_cmd(self, command):
-        self.tn.write(command.act_cmd + "\n")
+        self.tn.write(command + "\n")
         feedback = self.tn.read_until('$', 5)
-        # self.tn.write('q\n'')
-        self.tn.write('exit\n')
-        # feedback = tn.read_until("???", 5)
-        print self.tn.read_until('$', 5)
         print "feedback:", feedback
         return feedback
+
+    def logout(self):
+        self.tn.write('exit\n')
+        print self.tn.read_until('$', 5)
+        return
 
 class TestScriptControl(AgentControl):
     def __init__(self):
@@ -57,5 +60,8 @@ class TestScriptControl(AgentControl):
         return
 
     def exec_cmd(self, command):
-        print "command %s is going to be executed"
+        print "command %s is going to be executed" % command
         return "successfully"
+
+    def logout(self):
+        return
