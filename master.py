@@ -5,15 +5,19 @@ from user_interface.cmdline_interface import CmdLineInterface
 import importlib
 from template import Template
 from cmd_script_executor import CmdSession
+from client import MasterSelect
+import gevent
 
 class Master:
-    def __init__(self, input_if):
+    def __init__(self, input_if, master_select):
         # init the input interface
         self.input_if = input_if()
         self.logged = False
 
         self.identity = Identity()
         self.command = Command()
+        self.agent_ip = None
+        self.master_select = master_select
         return
 
     def test(self):
@@ -21,7 +25,7 @@ class Master:
         self.identity.dev_id = 'tianyi.dty'
         self.identity.dev_pw = 'Mtfbwy626488'
         dev = DeviceManagemnt()
-        dev.get_devinfo(self.identity)
+        self.agent_ip = dev.get_devinfo(self.identity)
         command = Command()
         command.abs_cmd = 'ipconfig'
 
@@ -35,7 +39,7 @@ class Master:
     def login(self):
         self.input_if.login(self.identity)
         dev = DeviceManagemnt()
-        dev.get_devinfo(self.identity)
+        self.agent_ip = dev.get_devinfo(self.identity)
         self.logged = True
         return
 
@@ -53,7 +57,9 @@ class Master:
             command = template.find(abs_cmd, self.identity)
             if command:
                 str_xml = Template.to_xml(command, self.identity)
-                return http_request(str_xml)
+                # return http_request(str_xml)
+                self.master_select.request(str_xml, self.agent_ip)
+                return
         return
 
     # execute a single atomic command from parameter
@@ -63,7 +69,9 @@ class Master:
         command = temp.find(cmd, self.identity)
         if command:
             str_xml = Template.to_xml(command, self.identity)
-            return http_request(str_xml)
+            # return http_request(str_xml)
+            self.master_select.request(str_xml, self.agent_ip)
+            return
 
     # execute a whole script containing atomic command(But execute separately)
     def exec_script(self):
@@ -73,7 +81,7 @@ class Master:
 
     def exec_script_by_transfer(self):
         script_name = self.input_if.exec_script()
-        new_script_name = CmdSession.translate_script(script_name)
+        new_script_name, self.agent_ip = CmdSession.translate_script(script_name)
         try:
             fp = open(new_script_name, 'r')
         except IOError, e:
@@ -81,7 +89,9 @@ class Master:
             return
         str_script = fp.read()
         str_xml = Template.to_xml(None, None, str_script)
-        return http_request(str_xml)
+        # return http_request(str_xml)
+        self.master_select.request(str_xml, self.agent_ip)
+        return
 
     def show_temp(self):
         # print self.temp.tempDict
@@ -128,21 +138,27 @@ def start_master2():
         elif opr_type == "script":
             master.exec_script()
 
-if __name__ == "__main__":
-    master = Master(CmdLineInterface)
+def master_process(master_select):
     while True:
+        gevent.sleep(1)
         opr_type = raw_input('operation type:')
         if opr_type == 'show temp':
             master.show_temp()
         elif opr_type == 'cfg':
+            # master_select = MasterSelect()
+            master = Master(CmdLineInterface, master_select)
             master.login()
             master.cfg_cmd()
         elif opr_type == 'exec':
+            # master_select = MasterSelect()
+            master = Master(CmdLineInterface, master_select)
             master.login()
             master.exec_cmd()
         elif opr_type == 'test':
             master.test()
         elif opr_type == 'script':
+            # master_select = MasterSelect()
+            master = Master(CmdLineInterface, master_select)
             master.exec_script_by_transfer()
         elif opr_type == 'script_old':
             master.login()
@@ -150,3 +166,13 @@ if __name__ == "__main__":
             new_script_name = CmdSession.load_script(script_name)
             new_script_name = new_script_name.split('.')
             importlib.import_module(new_script_name[0])
+
+def test_process(master_select):
+    master = Master(CmdLineInterface, master_select)
+    master.exec_script_by_transfer()
+
+if __name__ == "__main__":
+    master_select = MasterSelect()
+    listen = gevent.spawn(master_select.listen)
+    req = gevent.spawn(master_process, master_select)
+    gevent.joinall([listen, req])

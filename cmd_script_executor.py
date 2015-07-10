@@ -82,6 +82,7 @@ class CmdSession:
 
         device = dict()
         dev_mngt = DeviceManagemnt()
+        agent_ip = None
         for line in fp:
             if 'DcaCmd(' in line:
                 var_name, exp = line.replace(' ', '').split('=')
@@ -90,8 +91,15 @@ class CmdSession:
                 identity.ip = result[0][1:-1]
                 identity.dev_id = result[1][1:-1]
                 identity.dev_pw = result[2][1:-1]
-                dev_mngt.get_devinfo(identity)
                 device[var_name] = identity
+                if not agent_ip:
+                    agent_ip = dev_mngt.get_devinfo(identity)
+                else:
+                    temp_agent_ip = dev_mngt.get_devinfo(identity)
+                    if agent_ip != temp_agent_ip:
+                        return
+                    else:
+                        agent_ip = temp_agent_ip
 
         fp = open(script_name, 'r')
         line_no = 1
@@ -110,7 +118,7 @@ class CmdSession:
                                 new_exp = exp.replace(abs_cmd, act_cmd)
                                 line = line.replace(exp, new_exp)
             fout.write(line)
-        return new_script_name
+        return new_script_name, agent_ip
 
 def tc1():
     CmdSession.load_script('script.py')

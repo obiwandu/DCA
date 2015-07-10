@@ -1,15 +1,17 @@
-__author__ = 'User'
-
 from template import Template
 import re
 from gevent.wsgi import WSGIServer
+from gevent.server import StreamServer
 from control_protocol.telnet_control import TelnetControl, TestTelnetControl
 
+__author__ = 'User'
+
 class Handler:
-    def __init__(self, env, control):
+    def __init__(self, data, control):
         print "msg being handling..."
         self.control = control()
-        self.command, self.identity, self.script = Template.parse_xml(env['PATH_INFO'])
+        # self.command, self.identity, self.script = Template.parse_xml(env['PATH_INFO'])
+        self.command, self.identity, self.script = Template.parse_xml(data)
         if not self.script:
             self.type = 'cmd'
             self.command.show()
@@ -38,7 +40,6 @@ class Handler:
             feedback = result['script_ret']
         else:
             feedback = 'not handled'
-
         return feedback
 
     def feedback_parser(self, feedback):
@@ -56,19 +57,24 @@ class Handler:
         else:
             return
 
-def application(env, start_response):
+def application(socket, address):
     code = '200 OK'
     msg = 'SUCCESS'
     success = True
 
+    data = socket.recv(4096)
     print "new msg arrives"
-    print env
-    handler = Handler(env, TestTelnetControl)
+    print data
+    handler = Handler(data, TestTelnetControl)
     msg = handler.msg_executor()
-    start_response(code, [('Content-Type', 'text/plain')])
+    # start_response(code, [('Content-Type', 'text/plain')])
+    print 'start to send feedback', msg
+    socket.sendall(msg)
 
-    return ['%s\n' % str(msg)]
+    return
+    # return ['%s\n' % str(msg)]
 
 if __name__ == "__main__":
     print 'Serving on 8000 starts...'
-    server = WSGIServer(('', 8000), application).serve_forever()
+    # server = WSGIServer(('', 8000), application).serve_forever()
+    server = StreamServer(('', 8000), application).serve_forever()

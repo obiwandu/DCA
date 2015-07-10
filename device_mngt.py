@@ -10,12 +10,15 @@ class DeviceManagemnt:
             identity.dev_type = 'switch'
             identity.dev_factory = 'HW'
             identity.dev_model = '150'
+            agent_ip = '127.0.0.1'
         elif identity.ip == '192.168.0.1':
             identity.dev_type = 'switch'
             identity.dev_factory = 'CISCO'
             identity.dev_model = '200'
+            agent_ip = '127.0.0.1'
         else:
             identity.dev_type = 'switch'
             identity.dev_factory = 'HW'
             identity.dev_model = '150'
-        return
+            agent_ip = '127.0.0.1'
+        return agent_ip
