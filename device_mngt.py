@@ -1,24 +1,25 @@
-from datastructure import Identity
-from datastructure import Command
+from datastructure import DevInfo
 
 class DeviceManagemnt:
     def __init__(self):
         return
 
-    def get_devinfo(self, identity):
-        if identity.ip == '1.1.1.1':
-            identity.dev_type = 'switch'
-            identity.dev_factory = 'HW'
-            identity.dev_model = '150'
+    @staticmethod
+    def get_devinfo(ip):
+        devinfo = DevInfo()
+        if ip == '1.1.1.1':
+            devinfo.dev_type = 'switch'
+            devinfo.dev_factory = 'HW'
+            devinfo.dev_model = '150'
             agent_ip = '127.0.0.1'
-        elif identity.ip == '192.168.0.1':
-            identity.dev_type = 'switch'
-            identity.dev_factory = 'CISCO'
-            identity.dev_model = '200'
+        elif ip == '192.168.0.1':
+            devinfo.dev_type = 'switch'
+            devinfo.dev_factory = 'CISCO'
+            devinfo.dev_model = '200'
             agent_ip = '127.0.0.1'
         else:
-            identity.dev_type = 'switch'
-            identity.dev_factory = 'HW'
-            identity.dev_model = '150'
+            devinfo.dev_type = 'switch'
+            devinfo.dev_factory = 'HW'
+            devinfo.dev_model = '150'
             agent_ip = '127.0.0.1'
-        return agent_ip
+        return agent_ip, devinfo

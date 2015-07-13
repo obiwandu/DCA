@@ -1,4 +1,4 @@
-from dca_cmd import DcaCmd
+from dca.dca_cmd import DcaCmd
 from control_protocol.telnet_control import TestScriptControl
 
 dev1 = DcaCmd(TestScriptControl, '1.1.1.1', 'root', '123456')

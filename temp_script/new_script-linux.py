@@ -1,4 +1,4 @@
-from dca_cmd import DcaCmd
+from dca.dca_cmd import DcaCmd
 from telnet_control import TestTelnetControl
 
 dev1 = DcaCmd(TestTelnetControl, '10.137.59.22', 'tianyi.dty', 'Mtfbwy626488')

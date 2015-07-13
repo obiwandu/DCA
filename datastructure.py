@@ -5,18 +5,24 @@ class Identity:
         self.ip = None
         self.dev_id = None
         self.dev_pw = None
-        self.dev_factory = None
-        self.dev_type = None
-        self.dev_model = None
         return
 
     def show(self):
         print 'ip:', self.ip
         print 'dev_id:', self.dev_id
         print 'dev_pw:', self.dev_pw
-        print 'dev_factory:', self.dev_factory
-        print 'dev_type:', self.dev_type
-        print 'dev_model:', self.dev_model
+
+class DevInfo:
+    def __init__(self):
+        self.dev_factory = None
+        self.dev_type = None
+        self.dev_model = None
+        return
+
+    def show(self):
+        print 'dev_factory', self.dev_factory
+        print 'dev_type', self.dev_type
+        print 'dev_model', self.dev_model
 
 class Command:
     def __init__(self):
