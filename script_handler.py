@@ -18,12 +18,12 @@ class ScriptHandler:
 
     @staticmethod
     def generate_script(abs_cmd, identity, protocol):
-        template = "from dca.dca_cmd import DcaCmd\n" \
+        script_template = "from dca.dca_cmd import DcaCmd\n" \
                    "from control_protocol.telnet_control import {class_name}\n" \
                    "dev1 = DcaCmd({class_name}, '{ip}', '{dev_id}', '{dev_pw}')\n" \
                    "script_ret = dev1.execute('{cmd}')\n" \
                    "dev1.logout()"
-        script = template.format(class_name=protocol.__name__, ip=identity.ip, \
+        script = script_template.format(class_name=protocol.__name__, ip=identity.ip, \
                                  dev_id=identity.dev_id, dev_pw=identity.dev_pw, cmd=abs_cmd)
         return script
 
