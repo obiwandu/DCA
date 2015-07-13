@@ -1,4 +1,4 @@
-from datastructure import DevInfo
+from util.datastructure import DevInfo
 
 class DeviceManagemnt:
     def __init__(self):

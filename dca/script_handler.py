@@ -1,9 +1,11 @@
 __author__ = 'User'
 
 import re
-from template_handler import TemplateHandler
-from device_mngt import DeviceManagemnt
-from datastructure import Command, Identity, DevInfo
+
+from util.template_handler import TemplateHandler
+from device.device_mngt import DeviceManagemnt
+from util.datastructure import Identity
+
 
 class ScriptHandler:
     def __init__(self):

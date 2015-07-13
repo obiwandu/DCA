@@ -1,5 +1,7 @@
 from xml.etree import ElementTree
-from datastructure import Command, DevInfo
+
+from util.datastructure import Command, DevInfo
+
 
 class TemplateHandler:
     def __init__(self):

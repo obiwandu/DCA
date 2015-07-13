@@ -1,7 +1,7 @@
 __author__ = 'User'
 
-from datastructure import Command
-from datastructure import Identity
+from util.datastructure import Command
+from util.datastructure import Identity
 from template import Template
 
 def tc1():

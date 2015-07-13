@@ -1,6 +1,6 @@
-from device_mngt import DeviceManagemnt
-from template_handler import TemplateHandler
-from script_handler import ScriptHandler
+from device.device_mngt import DeviceManagemnt
+from util.template_handler import TemplateHandler
+from dca.script_handler import ScriptHandler
 from master_proxy import MasterProxy
 
 

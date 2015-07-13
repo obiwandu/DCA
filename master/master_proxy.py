@@ -1,4 +1,4 @@
-from script_handler import ScriptHandler
+from dca.script_handler import ScriptHandler
 from master_invoker import MasterInvoker
 
 __author__ = 'User'

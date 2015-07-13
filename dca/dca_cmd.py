@@ -1,5 +1,6 @@
 __author__ = 'User'
-from datastructure import Identity, Command
+from util.datastructure import Identity
+
 
 class DcaCmd:
     def __init__(self, control, ip, dev_id, dev_pw):

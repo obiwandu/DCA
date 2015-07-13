@@ -1,9 +1,7 @@
 __author__ = 'User'
 
 from master_interface import MasterInterface
-from datastructure import Command
-from datastructure import Identity
-import getpass
+
 
 class CmdLineInterface(MasterInterface):
     def login(self, identity):

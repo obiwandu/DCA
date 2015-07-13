@@ -1,6 +1,6 @@
 import gevent
 
-from datastructure import Identity, Command
+from util.datastructure import Identity
 from master.master import Master
 from control_protocol.telnet_control import TestTelnetControl
 
