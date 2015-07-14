@@ -4,6 +4,7 @@ import gevent
 from gevent import select
 import Queue
 import sys
+from dca.dca_protocol import DcaProtocol
 
 class MasterConnector:
     def __init__(self):
@@ -17,24 +18,25 @@ class MasterConnector:
         # else:
         #     self.select = None
 
-    def listen(self):
+    def listen(self, request_dict):
+        print 'Connector: listen'
         while True:
             gevent.sleep(1)
-            print 'waiting for connection'
-            readable, writable, exceptional = select.select(self.inputs, self.outputs, self.inputs, 20)
+            # print 'waiting for connection'
+            readable, writable, exceptional = select.select(self.inputs, self.outputs, self.inputs, 0)
 
             if not (readable or writable or exceptional):
-                print 'select time out, re-do select'
+                print 'No input event'
                 continue
 
             # polling readable event
             for s in readable:
-                # type of s should be checkhere
+                # type of s should be checked here
                 # if s is socket.socket.fileno:
                     # data from server
                 data = s.recv(1024)
                 if data:
-                    print 'recv data', data, 'from', s.getpeername()
+                    print 'recv data:', data, 'from', s.getpeername()
                     self.message_queue[s].put(data)
                     self.inputs.remove(s)
                     s.close()
@@ -53,13 +55,17 @@ class MasterConnector:
                     self.outputs.remove(s)
                 s.close()
                 del self.message_queue[s]
+
+            if DcaProtocol.check_termination(self.message_queue, request_dict):
+                print 'All requests have been answered'
+                return
         return
 
     def request(self, data, ip):
-        # HOST = '127.0.0.1'
-        PORT = 8000
+        print 'Connector: request'
+        port = 8000
         s = None
-        for res in socket.getaddrinfo(ip, PORT, socket.AF_UNSPEC, socket.SOCK_STREAM):
+        for res in socket.getaddrinfo(ip, port, socket.AF_UNSPEC, socket.SOCK_STREAM):
             af, socktype, proto, canonname, sa = res
             try:
                 s = socket.socket(af, socktype, proto)
@@ -84,6 +90,6 @@ class MasterConnector:
         # put socket which is waiting for recv here
         self.inputs.append(s)
         self.message_queue[s] = Queue.Queue()
-        gevent.sleep(20)
+        gevent.sleep(0.1)
         # recv and close would be done by handler
         return

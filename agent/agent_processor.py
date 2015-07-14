@@ -9,6 +9,8 @@ class AgentProcessor:
 
     @staticmethod
     def process(data):
-        procedure_name, para = DcaProtocol.decap(data)
-        feedback = AgentInvoker.invoke(procedure_name, para)
+        procedure_name, para, uuid = DcaProtocol.decap_input(data)
+        result = AgentInvoker.invoke(procedure_name, para)
+        feedback = DcaProtocol.encap_output(result, uuid)
+
         return feedback

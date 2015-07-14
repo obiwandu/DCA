@@ -23,4 +23,7 @@ class AgentInvoker:
             fp.close()
             feedback = Agent.exec_script(script_path)
             os.remove(script_path)
+        else:
+            feedback = 'Invalid command, not handled'
+
         return feedback
