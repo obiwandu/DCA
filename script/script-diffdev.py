@@ -1,8 +1,8 @@
 from dca.dca_cmd import DcaCmd
-from control_protocol.telnet_control import TestScriptControl
+from control_protocol.telnet_stub_control import TelnetStubControl
 
-dev1 = DcaCmd(TestScriptControl, '1.1.1.1', 'root', '123456')
-dev2 = DcaCmd(TestScriptControl, '192.168.0.1', 'admin', 'hello')
+dev1 = DcaCmd(TelnetStubControl, '1.1.1.1', 'root', '123456')
+dev2 = DcaCmd(TelnetStubControl, '192.168.0.1', 'admin', 'hello')
 i = 2
 for iter in range(i):
     if dev1.execute('show') == dev2.execute('show'):

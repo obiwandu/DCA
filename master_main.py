@@ -2,7 +2,6 @@ import gevent
 
 from util.datastructure import Identity
 from master.master import Master
-from control_protocol.telnet_control import TestTelnetControl
 
 __author__ = 'User'
 
@@ -25,14 +24,13 @@ if __name__ == "__main__":
     # req1 = gevent.spawn(master.exec_script, 'script-diffdev.py')
     # req2 = gevent.spawn(master.exec_script, 'script-diffdev.py')
 
-
-    # req3 = gevent.spawn(Master.exec_script, 'script-diffdev.py')
+    # req3 = gevent.spawn(master.exec_script, 'script-diffdev.py')
 
     identity = Identity()
     identity.ip = '10.137.59.22'
     identity.dev_id = 'tianyi.dty'
     identity.dev_pw = 'Mtfbwy626488'
-    req3 = gevent.spawn(master.exec_cmd, 'dir', identity, TestTelnetControl)
+    req3 = gevent.spawn(master.exec_cmd, 'dir', identity, ('telnet_server_control', 'TelnetServerControl'))
 
     # gevent.joinall([listen, req, req1, req2, req3])
     gevent.joinall([listen, req3])

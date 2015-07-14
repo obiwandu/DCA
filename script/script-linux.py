@@ -1,7 +1,7 @@
 from dca.dca_cmd import DcaCmd
-from control_protocol.telnet_control import TestTelnetControl
+from control_protocol.telnet_stub_control import TelnetStubControl
 
-dev1 = DcaCmd(TestTelnetControl, '10.137.59.22', 'tianyi.dty', 'Mtfbwy626488')
+dev1 = DcaCmd(TelnetStubControl, '10.137.59.22', 'tianyi.dty', 'Mtfbwy626488')
 
 i = 2
 for iter in range(i):

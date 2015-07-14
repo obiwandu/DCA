@@ -3,24 +3,27 @@ from agent_control import AgentControl
 
 __author__ = 'User'
 
-class TelnetControl(AgentControl):
+class TelnetServerControl(AgentControl):
     def __init__(self):
-        super(TelnetControl, self).__init__()
+        super(TelnetServerControl, self).__init__()
         self.tn = None
 
     def login(self, identity):
         self.tn = Telnet(identity.ip)
-        print self.tn.read_until('Password:')
+        print self.tn.read_until("login: ")
+        self.tn.write(identity.dev_id + "\n")
+        print self.tn.read_until("Password: ")
         self.tn.write(identity.dev_pw + "\n")
-        print self.tn.read_until('>')
+        feedback = self.tn.read_until('$', 5)
         return
 
     def exec_cmd(self, command):
-        self.tn.write(command.act_cmd + "\n")
-        feedback = self.tn.read_until('>')
+        self.tn.write(command + "\n")
+        feedback = self.tn.read_until('$', 5)
         print "feedback:", feedback
         return feedback
 
     def logout(self):
         self.tn.write('exit\n')
+        print self.tn.read_until('$', 5)
         return
