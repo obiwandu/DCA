@@ -38,6 +38,7 @@ class ScriptHandler:
             print 'File %s not found.' % e
             return
 
+        # load all configurations into a list
         cmd = []
         temp_no = 1
         for line in fp:
@@ -49,9 +50,10 @@ class ScriptHandler:
         str_script_translated = ''
 
         device = dict()
-        ip = []
+        # ip = []
         agent_ip = None
-        for line in str_script:
+        script_line = str_script.split('\n')
+        for line in script_line:
             if 'DcaCmd(' in line:
                 var_name, exp = line.replace(' ', '').split('=')
                 result = re.findall("'.*?'", exp)
@@ -67,10 +69,10 @@ class ScriptHandler:
                         print "devices don't belong to one unique agent"
                         return
                 device[var_name] = dev_info
-                ip.append(identity.ip)
+                # ip.append(identity.ip)
 
         line_no = 1
-        for line in str_script:
+        for line in script_line:
             line_no += 1
             if 'execute' in line:
                 # restriction: there must be space between operator and variables/methods.
@@ -84,7 +86,8 @@ class ScriptHandler:
                             if abs_cmd == result and dev.dev_type == dev_type and dev.dev_factory == dev_factory and dev.dev_model == dev_model:
                                 new_exp = exp.replace(abs_cmd, act_cmd)
                                 line = line.replace(exp, new_exp)
-            str_script_translated += line
+                                break
+            str_script_translated += line + '\n'
         return str_script_translated, agent_ip
 
 def tc1():

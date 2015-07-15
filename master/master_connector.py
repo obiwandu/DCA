@@ -33,7 +33,7 @@ class MasterConnector:
                 # type of s should be checked here
                 # if s is socket.socket.fileno:
                     # data from server
-                data = s.recv(1024)
+                data = s.recv(9999)
                 if data:
                     print 'recv data:', data, 'from', s.getpeername()
                     self.message_queue[s].put(data)

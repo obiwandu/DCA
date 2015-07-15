@@ -14,7 +14,6 @@ class DcaCmd:
 
     def logout(self):
         self.control.logout()
-        print 'logout'
         return
 
     def execute(self, cmd):

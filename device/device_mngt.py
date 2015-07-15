@@ -17,6 +17,16 @@ class DeviceManagemnt:
             devinfo.dev_factory = 'CISCO'
             devinfo.dev_model = '200'
             agent_ip = '127.0.0.1'
+        elif ip == '10.65.7.131':  #taobao test device
+            devinfo.dev_type = 'server'
+            devinfo.dev_factory = 'ALIBABA'
+            devinfo.dev_model = 'taobao_test'
+            agent_ip = '127.0.0.1'
+        elif ip == '10.137.59.22':  # springboard
+            devinfo.dev_type = 'server'
+            devinfo.dev_factory = 'ALIBABA'
+            devinfo.dev_model = 'springboard'
+            agent_ip = '127.0.0.1'
         else:
             devinfo.dev_type = 'switch'
             devinfo.dev_factory = 'HW'

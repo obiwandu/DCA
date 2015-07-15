@@ -1,4 +1,7 @@
-<Template><Command><AbsCmd>dir</AbsCmd><ActCmd>ls</ActCmd><ExpResult /></Command><DevInfo><Type>switch</Type><Factory>HW</Factory><Model>150</Model></DevInfo></Template>
-<Template><Command><AbsCmd>dir</AbsCmd><ActCmd>ls</ActCmd><ExpResult /></Command><DevInfo><Type>switch</Type><Factory>HW</Factory><Model>150</Model></DevInfo></Template>
+<Template><Command><AbsCmd>hwinfo</AbsCmd><ActCmd>lscpu</ActCmd><ExpResult /></Command><DevInfo><Type>server</Type><Factory>ALIBABA</Factory><Model>taobao_test</Model></DevInfo></Template>
+<Template><Command><AbsCmd>hwinfo</AbsCmd><ActCmd>lscpu</ActCmd><ExpResult /></Command><DevInfo><Type>server</Type><Factory>ALIBABA</Factory><Model>springboard</Model></DevInfo></Template>
+<Template><Command><AbsCmd>networkinfo</AbsCmd><ActCmd>ifconfig</ActCmd><ExpResult /></Command><DevInfo><Type>server</Type><Factory>ALIBABA</Factory><Model>taobao_test</Model></DevInfo></Template>
+<Template><Command><AbsCmd>networkinfo</AbsCmd><ActCmd>ifconfig</ActCmd><ExpResult /></Command><DevInfo><Type>server</Type><Factory>ALIBABA</Factory><Model>springboard</Model></DevInfo></Template>
 <Template><Command><AbsCmd>show</AbsCmd><ActCmd>show -hw</ActCmd><ExpResult /></Command><DevInfo><Type>switch</Type><Factory>HW</Factory><Model>150</Model></DevInfo></Template>
+<Template><Command><AbsCmd>ps</AbsCmd><ActCmd>ps -hw</ActCmd><ExpResult /></Command><DevInfo><Type>switch</Type><Factory>HW</Factory><Model>150</Model></DevInfo></Template>
 <Template><Command><AbsCmd>show</AbsCmd><ActCmd>show -cisco</ActCmd><ExpResult /></Command><DevInfo><Type>switch</Type><Factory>CISCO</Factory><Model>200</Model></DevInfo></Template>

@@ -29,9 +29,14 @@ class TemplateHandler:
         element = ElementTree.SubElement(dev, 'Model')
         element.text = dev_info.dev_model
 
-        str_xml = ElementTree.tostring(root)
-        fp = open(self.template_path, 'a')
-        fp.write(str_xml + "\n")
+        str_xml = ElementTree.tostring(root) + '\n'
+        fp = open(self.template_path, 'a+')
+        for line in fp:
+            if str_xml == line:
+                fp.close()
+                return
+
+        fp.write(str_xml)
         fp.close()
         return
 
@@ -45,14 +50,25 @@ class TemplateHandler:
             for element in root:
                 if element.tag == 'Command':
                     for sub_element in element:
-                        if sub_element.tag != 'ExpResult':
-                            setattr(cmd, sub_element.tag, sub_element.text)
-                        else:
+                        if sub_element.tag == 'AbsCmd':
+                            cmd.abs_cmd = sub_element.text
+                        elif sub_element.tag == 'ActCmd':
+                            cmd.act_cmd = sub_element.text
+                        elif sub_element.tag == 'ExpResult':
                             for field in sub_element:
                                 cmd.exp_result.append((field.tag, field.text))
+                        else:
+                            setattr(cmd, sub_element.tag, sub_element.text)
                 if element.tag == 'DevInfo':
-                    for subElement in element:
-                        setattr(dev_info, subElement.tag, subElement.text)
+                    for sub_element in element:
+                        if sub_element.tag == 'Type':
+                            dev_info.dev_type = sub_element.text
+                        elif sub_element.tag == 'Factory':
+                            dev_info.dev_factory = sub_element.text
+                        elif sub_element.tag == 'Model':
+                            dev_info.dev_model = sub_element.text
+                        else:
+                            setattr(cmd, sub_element.tag, sub_element.text)
         return cmd, dev_info
 
     def config_path(self, new_path):
