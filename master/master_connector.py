@@ -19,7 +19,6 @@ class MasterConnector:
         #     self.select = None
 
     def listen(self, request_dict):
-        print 'Connector: listen'
         while True:
             gevent.sleep(1)
             # print 'waiting for connection'
@@ -58,11 +57,10 @@ class MasterConnector:
 
             if DcaProtocol.check_termination(self.message_queue, request_dict):
                 print 'All requests have been answered'
-                return
+                return request_dict
         return
 
     def request(self, data, ip):
-        print 'Connector: request'
         port = 8000
         s = None
         for res in socket.getaddrinfo(ip, port, socket.AF_UNSPEC, socket.SOCK_STREAM):

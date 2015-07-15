@@ -1,3 +1,4 @@
+import gevent
 from device.device_mngt import DeviceManagemnt
 from util.template_handler import TemplateHandler
 from dca.script_handler import ScriptHandler
@@ -58,7 +59,6 @@ class Master:
         Return:
             None. But the feedback of the execution would be stored in the message queue of current master object.
         """
-        print 'Master: exec_cmd'
         # convert abs_cmd, identity to script
         str_script = ScriptHandler.generate_script(abs_cmd, identity, protocol)
         return self.proxy.remote_call('exec_script', str_script)
@@ -81,3 +81,24 @@ class Master:
         str_script = fp.read()
 
         return self.proxy.remote_call('exec_script', str_script)
+
+    def execute(self, para_list):
+        tasks = []
+        tasks.append(gevent.spawn(self.listen))
+        for para in para_list:
+            if para[0] == 'cmd':
+                tasks.append(gevent.spawn(self.exec_cmd, para[1], para[2], para[3]))
+            elif para[0] == 'script':
+                tasks.append(gevent.spawn(self.exec_script, para[1]))
+        gevent.joinall(tasks)
+
+        for task in tasks:
+            print task.value
+
+        results = []
+        feedback_dict = tasks[0].value
+        for i in range(len(para_list)):
+            request_uuid = tasks[i + 1].value
+            results.append((request_uuid, para_list[i], feedback_dict[request_uuid]))
+
+        return results

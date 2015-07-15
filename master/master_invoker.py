@@ -7,16 +7,13 @@ __author__ = 'User'
 class MasterInvoker:
     def __init__(self):
         self.connector = MasterConnector()
-        self.message_queue = None
         self.request_dict = dict()
         pass
 
     def listen(self):
-        print 'Invoker: listen'
-        self.connector.listen(self.request_dict)
+        return self.connector.listen(self.request_dict)
 
     def remote_call(self, procedure_name, para, ip):
-        print 'Invoker: remote_call'
         id = uuid.uuid4()
         data = DcaProtocol.encap_input(procedure_name, para, id)
 

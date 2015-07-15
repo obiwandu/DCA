@@ -8,13 +8,11 @@ class MasterProxy:
     """
     def __init__(self):
         self.invoker = MasterInvoker()
-        self.message_queue = None
         self.listen = self.invoker.listen
         pass
 
-    # def listen(self):
-    #     self.invoker.listen()
-    #     self.message_queue = self.invoker.message_queue
+    def listen(self):
+        return self.invoker.listen()
 
     def remote_call(self, procedure_name, para):
         """Execute the remote call.
@@ -27,7 +25,6 @@ class MasterProxy:
         Return:
             None. But the feedback of the execution would be stored in the message queue of current master object.
         """
-        print 'Proxy: remote_call'
         str_script, agent_ip = ScriptHandler.translate_script(para)
         return self.invoker.remote_call(procedure_name, str_script, agent_ip)
 
