@@ -4,6 +4,8 @@ from agent_control import AgentControl
 __author__ = 'User'
 
 class TelnetControl(AgentControl):
+    """ Inherit from AgentControl. Implement all existing methods in the way of Telnet.
+    """
     def __init__(self):
         super(TelnetControl, self).__init__()
         self.tn = None

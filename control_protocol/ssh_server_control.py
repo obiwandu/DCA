@@ -6,6 +6,8 @@ import socket
 __author__ = 'User'
 
 class SSHServerControl(AgentControl):
+    """ Inherit from AgentControl. Implement all existing methods in the way of SSH.
+    """
     def __init__(self):
         super(SSHServerControl, self).__init__()
         self.ssh = SSHClient()

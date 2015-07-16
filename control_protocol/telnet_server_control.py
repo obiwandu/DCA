@@ -4,6 +4,9 @@ from agent_control import AgentControl
 __author__ = 'User'
 
 class TelnetServerControl(AgentControl):
+    """ Inherit from AgentControl. Implement all existing methods in the way of Telnet.
+        It's meant to interact with a linux server instead of a network device.
+    """
     def __init__(self):
         super(TelnetServerControl, self).__init__()
         self.tn = None

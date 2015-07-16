@@ -1,10 +1,12 @@
 __author__ = 'User'
 
 class Identity:
+    """ Data structure of identity information
+    """
     def __init__(self):
-        self.ip = None
-        self.dev_id = None
-        self.dev_pw = None
+        self.ip = None  # string of device ip address
+        self.dev_id = None  # string of device id
+        self.dev_pw = None  # string of device password
         return
 
     def show(self):
@@ -13,10 +15,12 @@ class Identity:
         print 'dev_pw:', self.dev_pw
 
 class DevInfo:
+    """ Data structure of device information
+    """
     def __init__(self):
-        self.dev_factory = None
-        self.dev_type = None
-        self.dev_model = None
+        self.dev_factory = None     # string of device vendor
+        self.dev_type = None    # string of device type
+        self.dev_model = None   # string of device model
         return
 
     def show(self):
@@ -25,10 +29,12 @@ class DevInfo:
         print 'dev_model', self.dev_model
 
 class Command:
+    """ Data structure of command
+    """
     def __init__(self):
-        self.abs_cmd = None
-        self.act_cmd = None
-        self.exp_result = []
+        self.abs_cmd = None     # string of abstract command
+        self.act_cmd = None     # string of actual command
+        self.exp_result = []    # list of expected result. Every item is a tuple which contains a name of result and a regex
         return
 
     def show(self):

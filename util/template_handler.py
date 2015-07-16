@@ -4,11 +4,15 @@ from util.datastructure import Command, DevInfo
 
 
 class TemplateHandler:
+    """ Responsible for conversion between local template and structured data
+    """
     def __init__(self):
         self.template_path = 'template\\template.xml'
         return
 
     def to_template(self, command, dev_info):
+        """ Store a pair of command and device info into local template
+        """
         root = ElementTree.Element('Template')
 
         cmd = ElementTree.SubElement(root, 'Command')
@@ -42,6 +46,8 @@ class TemplateHandler:
 
     @staticmethod
     def parse_template(str_xml):
+        """ Parse a line of local template into structured comamand and device info
+        """
         dev_info = DevInfo()
         cmd = Command()
 
@@ -72,4 +78,6 @@ class TemplateHandler:
         return cmd, dev_info
 
     def config_path(self, new_path):
+        """ Configure the path for reading or writing template
+        """
         self.template_path = new_path

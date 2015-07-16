@@ -4,7 +4,7 @@ from master_invoker import MasterInvoker
 __author__ = 'User'
 
 class MasterProxy:
-    """Handles mapping between device and agent.
+    """Handle mapping between device and agent.
     """
     def __init__(self):
         self.invoker = MasterInvoker()
@@ -12,6 +12,8 @@ class MasterProxy:
         pass
 
     def listen(self):
+        """ Start listening.
+        """
         return self.invoker.listen()
 
     def remote_call(self, procedure_name, para):
@@ -27,6 +29,3 @@ class MasterProxy:
         """
         str_script, agent_ip = ScriptHandler.translate_script(para)
         return self.invoker.remote_call(procedure_name, str_script, agent_ip)
-
-    # def get_result(self):
-    #     return self.invoker.get_result()

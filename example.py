@@ -4,6 +4,8 @@ from util.datastructure import Command, Identity
 __author__ = 'User'
 
 def tutorial_cfg_cmd():
+    """ Configure some command templates.
+    """
     master = Master()
     cmd = Command()
     cmd.abs_cmd = 'hwinfo'
@@ -20,6 +22,9 @@ def tutorial_cfg_cmd():
     master.cfg_cmd('10.137.59.22', cmd)
 
 def tutorial_exec_script():
+    """ Configure two types of comamands, then execute a script to show hardware and network information on device
+        (here we use linux server instead of real device)
+    """
     master = Master()
     cmd = Command()
 
@@ -39,6 +44,9 @@ def tutorial_exec_script():
     print result
 
 def tutorial_exec_cmd():
+    """ Configure one command and execute it to show network interface information on device(here we use linux server
+        instead of real device)
+    """
     master = Master()
     cmd = Command()
 
@@ -57,8 +65,12 @@ def tutorial_exec_cmd():
     print 'result:'
     print result
 
-# Contains same abstract commond on different devices
+# Contains same abstract commands on different devices
 def tutorial_exec_script2():
+    """ Configure two commands which have the same abstract command on different devices. Then execute a script which
+        contains both these commands to show network interface information on device(here we use linux server instead
+        of real device)
+    """
     master = Master()
     cmd = Command()
 
