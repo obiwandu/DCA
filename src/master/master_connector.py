@@ -35,7 +35,6 @@ class MasterConnector:
 
             # polling readable event
             for s in readable:
-                # data = s.recv(9999)
                 buf = s.recv(9999)
                 data = buf
                 while len(buf):     # read until there's no data

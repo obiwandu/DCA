@@ -1,0 +1,1073 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3279180a-5543-4301-a776-4180e593af44" name="Default" comment="">
+      <change type="DELETED" beforePath="D:\ALi\DCA-RPC\AgentProcessor.py" afterPath="" />
+      <change type="DELETED" beforePath="D:\ALi\DCA-RPC\eos\__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="D:\ALi\DCA-RPC\eos\exceptions.py" afterPath="" />
+      <change type="DELETED" beforePath="D:\ALi\DCA-RPC\eos\lib\__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="D:\ALi\DCA-RPC\eos\log.py" afterPath="" />
+      <change type="DELETED" beforePath="D:\ALi\DCA-RPC\script\login.ini" afterPath="" />
+      <change type="DELETED" beforePath="D:\ALi\DCA-RPC\testcase\Regex_test.py" afterPath="" />
+      <change type="DELETED" beforePath="D:\ALi\DCA-RPC\testcase\tc_template.py" afterPath="" />
+      <change type="DELETED" beforePath="D:\ALi\DCA-RPC\testcase\telnet_test.py" afterPath="" />
+      <change type="DELETED" beforePath="D:\ALi\DCA-RPC\user_interface\cmdline_interface.py" afterPath="" />
+      <change type="DELETED" beforePath="D:\ALi\DCA-RPC\user_interface\master_interface.py" afterPath="" />
+      <change type="DELETED" beforePath="D:\ALi\DCA-RPC\user_interface\webapp_interface.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/master/master_connector.py" afterPath="$PROJECT_DIR$/master/master_connector.py" />
+    </list>
+    <ignored path="DCA.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="DCA" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="agent_main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/agent_main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="datastructure.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/util/datastructure.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="template_handler.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/util/template_handler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="template.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/template/template.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="3" column="63" selection-start-line="3" selection-start-column="54" selection-end-line="3" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="script-linux.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script/script-linux.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="script-diffdev.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script/script-diffdev.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="master_main.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/master_main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.16539717">
+              <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="master_connector.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/master/master_connector.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="master_proxy.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/master/master_proxy.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="master_invoker.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/master/master_invoker.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/agent_script.py" />
+        <option value="$PROJECT_DIR$/telnet_control.py" />
+        <option value="$PROJECT_DIR$/cmdline_interface.py" />
+        <option value="$PROJECT_DIR$/server.py" />
+        <option value="$PROJECT_DIR$/new_agent.py" />
+        <option value="$PROJECT_DIR$/epoll.py" />
+        <option value="$PROJECT_DIR$/client.py" />
+        <option value="$PROJECT_DIR$/main_master.py" />
+        <option value="$PROJECT_DIR$/datastructure.py" />
+        <option value="$PROJECT_DIR$/MasterConnector.py" />
+        <option value="$PROJECT_DIR$/master_connector.py" />
+        <option value="$PROJECT_DIR$/device_mngt.py" />
+        <option value="$PROJECT_DIR$/template.py" />
+        <option value="$PROJECT_DIR$/cmd_script_executor.py" />
+        <option value="$PROJECT_DIR$/master_proxy.py" />
+        <option value="$PROJECT_DIR$/master.py" />
+        <option value="$PROJECT_DIR$/AgentProcessor.py" />
+        <option value="$PROJECT_DIR$/master_invoker.py" />
+        <option value="$PROJECT_DIR$/dca_protocol.py" />
+        <option value="$PROJECT_DIR$/agent.py" />
+        <option value="$PROJECT_DIR$/agent_acceptor.py" />
+        <option value="$PROJECT_DIR$/agent_main.py" />
+        <option value="$PROJECT_DIR$/agent_invoker.py" />
+        <option value="$PROJECT_DIR$/agent_processor.py" />
+        <option value="$PROJECT_DIR$/temp_script/temp_script.py" />
+        <option value="$PROJECT_DIR$/template_handler.py" />
+        <option value="$PROJECT_DIR$/script_handler.py" />
+        <option value="$PROJECT_DIR$/master_main.py" />
+        <option value="$PROJECT_DIR$/temp_script.py" />
+        <option value="$PROJECT_DIR$/template/template.xml" />
+        <option value="$PROJECT_DIR$/script/script-linux.py" />
+        <option value="$PROJECT_DIR$/script/script-diffdev.py" />
+        <option value="$PROJECT_DIR$/example.py" />
+        <option value="$PROJECT_DIR$/dca/script_handler.py" />
+        <option value="$PROJECT_DIR$/dca/dca_protocol.py" />
+        <option value="$PROJECT_DIR$/dca/dca_cmd.py" />
+        <option value="$PROJECT_DIR$/control_protocol/agent_control.py" />
+        <option value="$PROJECT_DIR$/control_protocol/telnet_control.py" />
+        <option value="$PROJECT_DIR$/control_protocol/ssh_server_control.py" />
+        <option value="$PROJECT_DIR$/control_protocol/telnet_server_control.py" />
+        <option value="$PROJECT_DIR$/control_protocol/telnet_stub_control.py" />
+        <option value="$PROJECT_DIR$/util/datastructure.py" />
+        <option value="$PROJECT_DIR$/util/template_handler.py" />
+        <option value="$PROJECT_DIR$/master/master_proxy.py" />
+        <option value="$PROJECT_DIR$/master/master.py" />
+        <option value="$PROJECT_DIR$/master/master_invoker.py" />
+        <option value="$PROJECT_DIR$/master/master_connector.py" />
+        <option value="$PROJECT_DIR$/agent/agent_acceptor.py" />
+        <option value="$PROJECT_DIR$/agent/agent_processor.py" />
+        <option value="$PROJECT_DIR$/agent/agent_invoker.py" />
+        <option value="$PROJECT_DIR$/agent/agent.py" />
+      </list>
+    </option>
+  </component>
+  <component name="NamedScopeManager">
+    <order />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DCA" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DCA" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DCA-RPC" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="214" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="215" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="214" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="680" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="214" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="214" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="215" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="680" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="FullScreen" value="false" />
+    <property name="recentsLimit" value="5" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ALi\DCA-RPC\device" />
+      <recent name="D:\ALi\DCA-RPC\util" />
+      <recent name="D:\ALi\DCA-RPC\dca" />
+      <recent name="D:\ALi\DCA-RPC" />
+      <recent name="D:\ALi\DCA-RPC\master" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.master_main (1)">
+    <configuration default="false" name="agent_main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="DCA" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/agent_main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="master_main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="DCA" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/master_main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="dca_protocol" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dca" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="DCA" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dca/dca_protocol.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="master_invoker" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/master" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="DCA" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/master/master_invoker.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="script_handler" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dca" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="DCA" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dca/script_handler.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="DCA" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="DCA" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="DCA" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="DCA" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="DCA" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="DCA" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="testToRun" value="" />
+      <option name="keywords" value="" />
+      <option name="params" value="" />
+      <option name="USE_PARAM" value="false" />
+      <option name="USE_KEYWORD" value="false" />
+      <method />
+    </configuration>
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python.agent_main (1)" />
+      <item index="1" class="java.lang.String" itemvalue="Python.master_main (1)" />
+      <item index="2" class="java.lang.String" itemvalue="Python.dca_protocol" />
+      <item index="3" class="java.lang.String" itemvalue="Python.master_invoker" />
+      <item index="4" class="java.lang.String" itemvalue="Python.script_handler" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.master_main (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Python.script_handler" />
+        <item index="2" class="java.lang.String" itemvalue="Python.agent_main (1)" />
+        <item index="3" class="java.lang.String" itemvalue="Python.dca_protocol" />
+        <item index="4" class="java.lang.String" itemvalue="Python.master_invoker" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3279180a-5543-4301-a776-4180e593af44" name="Default" comment="" />
+      <created>1435049370087</created>
+      <option name="number" value="Default" />
+      <updated>1435049370087</updated>
+    </task>
+    <task id="LOCAL-00001" summary="We should use a new template class">
+      <created>1435109093454</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1435109093454</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Test for regex and telnet functionality">
+      <created>1435123208300</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1435123208300</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Test for regex and telnet functionality">
+      <created>1435134308291</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1435134308291</updated>
+    </task>
+    <task id="LOCAL-00004" summary="A new implementation for template">
+      <created>1435134340269</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1435134340269</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Support translation of script on master according to template&#10;Support execution of script translated by master on agent and return result to master">
+      <created>1436168434986</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1436168434986</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Support poll the sockets by means of select on master">
+      <created>1436492014380</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1436492014380</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Modify according to RPC standard">
+      <created>1436767712359</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1436767712359</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Remove temporary script after execution">
+      <created>1436768653219</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1436768653219</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Restructure files">
+      <created>1436768921996</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1436768921996</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add uuid as the identification of request and response">
+      <created>1436843175167</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1436843175167</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Modify remote protocol control">
+      <created>1436852951046</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1436852951046</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Append comments">
+      <created>1437033114089</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1437033114090</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.08229167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49133858" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32629356" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284055" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6462513" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="We should use a new template class" />
+    <MESSAGE value="Test for regex and telnet functionality" />
+    <MESSAGE value="A new implementation for template" />
+    <MESSAGE value="Support translation of script on master according to template&#10;Support execution of script translated by master on agent and return result to master" />
+    <MESSAGE value="Support poll the sockets by means of select on master" />
+    <MESSAGE value="Modify according to RPC standard" />
+    <MESSAGE value="Remove temporary script after execution" />
+    <MESSAGE value="Restructure files" />
+    <MESSAGE value="Add uuid as the identification of request and response" />
+    <MESSAGE value="Modify remote protocol control" />
+    <MESSAGE value="Append comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Append comments" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+      <option name="time" value="75" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/master/master_invoker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dca/script_handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/device/device_mngt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/master/master.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agent/agent_acceptor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agent/agent_processor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agent/agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agent/agent_invoker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/master/master_proxy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dca/script_handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="44" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dca/dca_cmd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/master/master.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/device/device_mngt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/master/master.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="147" column="0" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/device/device_mngt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/master/master.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="147" column="0" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/device/device_mngt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/master/master.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/device/device_mngt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/master/master.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="113" column="68" selection-start-line="113" selection-start-column="68" selection-end-line="113" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/device/device_mngt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/master/master.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="113" column="68" selection-start-line="113" selection-start-column="68" selection-end-line="113" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/importlib/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.571831">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/xml/etree/ElementTree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/gevent/pywsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26286766">
+          <caret line="505" column="12" selection-start-line="505" selection-start-column="12" selection-end-line="505" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/gevent/greenlet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="334" column="0" selection-start-line="334" selection-start-column="0" selection-end-line="334" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="67" column="30" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agent/agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agent/agent_acceptor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="65" selection-start-line="28" selection-start-column="65" selection-end-line="28" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agent/agent_invoker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agent/agent_processor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="85" selection-start-line="17" selection-start-column="85" selection-end-line="17" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/control_protocol/agent_control.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="118" selection-start-line="4" selection-start-column="118" selection-end-line="4" selection-end-column="118" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/control_protocol/ssh_server_control.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/control_protocol/telnet_control.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="87" selection-start-line="6" selection-start-column="87" selection-end-line="6" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/control_protocol/telnet_server_control.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="8" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/control_protocol/telnet_stub_control.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="103" selection-start-line="5" selection-start-column="103" selection-end-line="5" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dca/dca_cmd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dca/dca_protocol.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="81" column="50" selection-start-line="81" selection-start-column="50" selection-end-line="81" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dca/script_handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/device/device_mngt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/master/master.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/master/master_connector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/master/master_invoker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/master/master_proxy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agent_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/datastructure.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/template_handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="63" selection-start-line="3" selection-start-column="54" selection-end-line="3" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/script-linux.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/script-diffdev.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/master_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16539717">
+          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
